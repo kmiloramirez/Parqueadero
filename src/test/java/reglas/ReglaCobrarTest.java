@@ -6,7 +6,7 @@ import dominio.Vehiculo;
 
 public class ReglaCobrarTest {
 	Vehiculo vehiculo;
-	Reglas reglas;
+	ReglasParqueo reglas;
 	@Test
 	public void ValorDiaCarro(){
 		

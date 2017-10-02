@@ -5,7 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import dominio.Parqueadero;
 import dominio.Vehiculo;
 
-public class ReglaDisponibilidad implements Reglas {
+
+public class ReglaDisponibilidad implements ReglasParqueo {
 
 	@Autowired
 	Parqueadero parqueadero;

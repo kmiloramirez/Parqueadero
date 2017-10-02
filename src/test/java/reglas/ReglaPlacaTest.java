@@ -10,7 +10,7 @@ import dominio.Vehiculo;
 
 public class ReglaPlacaTest  {
 	Vehiculo vehiculo;
-	Reglas reglas;
+	ReglasParqueo reglas;
 	@Test
 	public void PlacaEsA (){
 		vehiculo=new Carro("FGN887");

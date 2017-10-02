@@ -2,7 +2,7 @@ package reglas;
 
 import dominio.Vehiculo;
 
-public interface Reglas {
+public interface ReglasParqueo {
 
 	public boolean validar (Vehiculo vehiculo);
 }

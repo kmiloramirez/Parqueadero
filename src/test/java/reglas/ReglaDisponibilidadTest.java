@@ -13,7 +13,7 @@ import dominio.Vehiculo;
 
 public class ReglaDisponibilidadTest {
 	Vehiculo vehiculo;
-	Reglas reglas;
+	ReglasParqueo reglas;
 	
 	@Test
 	public void validarDisponibilidadMoto(){

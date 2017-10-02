@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import dominio.Vehiculo;
 
-public class ReglaPlaca implements Reglas {
+public class ReglaPlaca implements ReglasParqueo {
 
 	@Override
 	public boolean validar(Vehiculo vehicuilo) {
