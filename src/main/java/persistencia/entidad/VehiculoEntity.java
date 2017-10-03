@@ -4,7 +4,6 @@ import javax.persistence.*;
 
 @Entity(name="vehiculo")
 
-
 public class VehiculoEntity {
 	
 	@Id

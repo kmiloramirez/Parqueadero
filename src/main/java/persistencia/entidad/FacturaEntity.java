@@ -11,8 +11,11 @@ public class FacturaEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	@Column(nullable = false,name= "vehiculoEntity")
+	
+	@ManyToOne
+	@JoinColumn(name = "ID_VEHICULO", referencedColumnName = "id")
 	private VehiculoEntity vehiculoEntity;
+	
 	@Column(nullable = false)
 	private Calendar fechaDeIngreso;
 	@Column
@@ -23,9 +26,6 @@ public class FacturaEntity {
 	private double valor;
 	public Long getId() {
 		return id;
-	}
-	public VehiculoEntity getVehiculo() {
-		return vehiculoEntity;
 	}
 	public Calendar getFechaDeIngreso() {
 		return fechaDeIngreso;
@@ -42,9 +42,6 @@ public class FacturaEntity {
 	public void setId(Long id) {
 		this.id = id;
 	}
-	public void setVehiculo(VehiculoEntity vehiculoEntity) {
-		this.vehiculoEntity = vehiculoEntity;
-	}
 	public void setFechaDeIngreso(Calendar fechaDeIngreso) {
 		this.fechaDeIngreso = fechaDeIngreso;
 	}
@@ -56,6 +53,12 @@ public class FacturaEntity {
 	}
 	public void setValor(double valor) {
 		this.valor = valor;
+	}
+	public VehiculoEntity getVehiculoEntity() {
+		return vehiculoEntity;
+	}
+	public void setVehiculoEntity(VehiculoEntity vehiculoEntity) {
+		this.vehiculoEntity = vehiculoEntity;
 	}
 
 }
