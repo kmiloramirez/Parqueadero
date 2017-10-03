@@ -1,30 +1,29 @@
 package reglas;
 
-import static org.mockito.Mockito.*;
-
 import org.junit.Assert;
 import org.junit.Test;
+import static org.mockito.Mockito.*;
 
 import dominio.Carro;
+import dominio.Parqueadero;
 import dominio.Vehiculo;
 
 public class ReglaPlacaTest  {
 	Vehiculo vehiculo;
-	ReglasParqueo reglas;
+	ReglasParqueo reglas=new ReglaPlaca();
+	Parqueadero parqueadero; 
 	@Test
-	public void PlacaEsA (){
-		vehiculo=new Carro("FGN887");
-		reglas = mock(ReglaPlaca.class);
-		when(reglas.validar(vehiculo)).thenReturn(false);
-		Assert.assertFalse(reglas.validar(vehiculo));
+	public void PlacaEsAYLunes (){
+		vehiculo=new Carro("AGN887");
+		ReglaPlaca reglaPlaca=mock(ReglaPlaca.class);
+		when(reglaPlaca.saberSiEsLunes()).thenReturn(true);
+		Assert.assertEquals((reglas.validar(vehiculo, parqueadero)),(reglaPlaca.saberSiEsLunes()));
 		
 	}
 	@Test
 	public void PlacaNoEsA (){
 		vehiculo=new Carro("FGN887");
-		reglas = mock(ReglaPlaca.class);
-		when(reglas.validar(vehiculo)).thenReturn(true);
-		Assert.assertTrue(reglas.validar(vehiculo));
+		Assert.assertTrue(reglas.validar(vehiculo, parqueadero));
 		
 	}
 

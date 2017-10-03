@@ -6,6 +6,8 @@ import dominio.Parqueadero;
 
 public class VigilanteConfig {
 	
+
+	
 	@Bean
 	public Parqueadero crearParqueadero(){
 		int celdaCarros=20;
