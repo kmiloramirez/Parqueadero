@@ -7,6 +7,7 @@ import static org.mockito.Mockito.*;
 import dominio.Carro;
 import dominio.Parqueadero;
 import dominio.Vehiculo;
+import dominio.excepcion.IngresoException;
 
 public class ReglaPlacaTest  {
 	Vehiculo vehiculo;
@@ -16,8 +17,14 @@ public class ReglaPlacaTest  {
 	public void PlacaEsAYLunes (){
 		vehiculo=new Carro("AGN887");
 		ReglaPlaca reglaPlaca=mock(ReglaPlaca.class);
-		when(reglaPlaca.saberSiEsLunes()).thenReturn(true);
-		Assert.assertEquals((reglas.validar(vehiculo, parqueadero)),(reglaPlaca.saberSiEsLunes()));
+		when(reglaPlaca.saberSiPuedeIngresar()).thenReturn(true);
+		try {
+			reglas.validar(vehiculo,parqueadero);
+
+			} catch (IngresoException e) {	
+			Assert.assertEquals("solo puede ingresar los dias domingos o lunes vuelva pronto", e.getMessage());
+			}
+		
 		
 	}
 	@Test

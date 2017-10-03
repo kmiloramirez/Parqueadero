@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite name="reglas.ReglaDisponibilidadTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-10-02T18:48:35" hostname="JUAN-RAMIREZ" time="0.18">
+<testsuite name="reglas.ReglaDisponibilidadTest" tests="4" skipped="0" failures="0" errors="0" timestamp="2017-10-03T16:46:19" hostname="JUAN-RAMIREZ" time="0.001">
   <properties/>
-  <testcase name="validarDisponibilidadCarroFalso" classname="reglas.ReglaDisponibilidadTest" time="0.178"/>
-  <testcase name="validarDisponibilidadMotoFalso" classname="reglas.ReglaDisponibilidadTest" time="0.001"/>
-  <testcase name="validarDisponibilidadCarro" classname="reglas.ReglaDisponibilidadTest" time="0.001"/>
+  <testcase name="validarDisponibilidadCarroFalso" classname="reglas.ReglaDisponibilidadTest" time="0.0"/>
+  <testcase name="validarDisponibilidadMotoFalso" classname="reglas.ReglaDisponibilidadTest" time="0.0"/>
+  <testcase name="validarDisponibilidadCarro" classname="reglas.ReglaDisponibilidadTest" time="0.0"/>
   <testcase name="validarDisponibilidadMoto" classname="reglas.ReglaDisponibilidadTest" time="0.0"/>
   <system-out><![CDATA[]]></system-out>
   <system-err><![CDATA[]]></system-err>
