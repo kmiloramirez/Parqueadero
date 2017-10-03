@@ -14,10 +14,8 @@ public class ReglaPlaca implements ReglasParqueo {
 	@Override
 	public boolean validar(Vehiculo vehicuilo, Parqueadero parqueadero) {
 		String placa = vehicuilo.getPlaca();
-		if(placa.charAt(0)=='A'){
-			if(!saberSiPuedeIngresar()){
+		if(placa.charAt(0)=='A' && !saberSiPuedeIngresar()){
 				throw new IngresoException(NO_PUEDE_INGRESAR_HOY);
-			}
 		}
 		return true;
 		

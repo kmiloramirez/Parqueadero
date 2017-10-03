@@ -3,6 +3,7 @@ package reglas;
 import org.junit.Assert;
 import org.junit.Test;
 
+
 import dominio.Carro;
 import dominio.Moto;
 import dominio.Parqueadero;

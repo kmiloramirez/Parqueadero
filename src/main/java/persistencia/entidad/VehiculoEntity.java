@@ -1,4 +1,4 @@
-package persistencia.endidad;
+package persistencia.entidad;
 
 import javax.persistence.*;
 
