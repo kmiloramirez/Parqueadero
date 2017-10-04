@@ -27,10 +27,13 @@ public class Vigilante {
 			if(vehiculo instanceof Carro){
 				Carro carro=(Carro) vehiculo;
 				repositorioVehiculo.agregarCarro(carro);
+				parqueadero.setCeldaCarros(parqueadero.getCeldaCarros()-1);
 			}
 			if(vehiculo instanceof Moto){
 				Moto moto=(Moto) vehiculo;
 				repositorioVehiculo.agregarMoto(moto);
+				parqueadero.setCeldaMotos(parqueadero.getCeldaMotos()-1);
+				
 			}
 		}
 		
