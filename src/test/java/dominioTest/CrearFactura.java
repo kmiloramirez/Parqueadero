@@ -27,7 +27,7 @@ public class CrearFactura {
 	public void crearFacturaSalida() {
 		vehiculo = mock(Vehiculo.class);
 		vehiculo = new Carro("FGN887");
-		Factura factura = new Factura(1, vehiculo, Calendar.getInstance(), Calendar.getInstance(), false, 200.0);
+		Factura factura = new Factura( vehiculo, Calendar.getInstance(), Calendar.getInstance(), false, 200.0);
 		Assert.assertNotNull(factura);
 	}
 

@@ -3,7 +3,6 @@ package dominio;
 import java.util.Calendar;
 
 public class Factura {
-	private Long id;
 	private Vehiculo vehiculo;
 	private Calendar fechaDeIngreso;
 	private Calendar fechaDeSalida;
@@ -14,8 +13,7 @@ public class Factura {
 		this.fechaDeIngreso = fechaDeIngreso;
 	}
 	
-	public Factura(long id,Vehiculo vehiculo, Calendar fechaDeIngreso, Calendar fechaDeSalida, boolean estado, double valor) {
-		this.id=id;
+	public Factura(Vehiculo vehiculo, Calendar fechaDeIngreso, Calendar fechaDeSalida, boolean estado, double valor) {
 		this.vehiculo = vehiculo;
 		this.fechaDeIngreso = fechaDeIngreso;
 		this.fechaDeSalida = fechaDeSalida;
@@ -37,11 +35,5 @@ public class Factura {
 	}
 	public double getValor() {
 		return valor;
-	}
-
-	public Long getId() {
-		return id;
-	}
-	
-	
+	}	
 }
