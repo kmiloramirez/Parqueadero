@@ -8,6 +8,7 @@ import persistencia.entidad.VehiculoEntity;
 public class VehiculoBuilder {
 	
 	
+	
 	private VehiculoBuilder(){
 		
 	}

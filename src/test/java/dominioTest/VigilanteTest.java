@@ -12,6 +12,7 @@ import com.parqueadero.vigilante.VigilanteApplication;
 
 import dominio.Carro;
 import dominio.Factura;
+import dominio.Moto;
 import dominio.Vehiculo;
 import dominio.Vigilante;
 @RunWith(SpringRunner.class)
@@ -27,10 +28,32 @@ public class VigilanteTest {
 	
 	
 	@Test
-	public void ingresarTest(){
+	public void ingresarCarroTest(){
 		vehiculo=new Carro("FGN887");
 		Factura factura=vigilante.ingresarVehiculo(vehiculo);
 		Assert.assertNotNull(factura);
+	}
+	@Test
+	public void ingresarMotoTest(){
+		vehiculo=new Moto("FGN887",201);
+		Factura factura=vigilante.ingresarVehiculo(vehiculo);
+		Assert.assertNotNull(factura);
+	}
+	
+	@Test
+	public void existeVehiculoTests(){
+		vehiculo=new Carro("FGN887");
+		Factura factura=vigilante.ingresarVehiculo(vehiculo);
+		Assert.assertNotNull(factura);
+		Assert.assertTrue(vigilante.existeVehiculo(vehiculo.getPlaca()));
+	}
+	@Test
+	public void noExisteVehiculoTests(){
+		vehiculo=new Carro("FGN887");
+		Factura factura=vigilante.ingresarVehiculo(vehiculo);
+		vehiculo=new Carro("HGN887");
+		Assert.assertNotNull(factura);
+		Assert.assertFalse(vigilante.existeVehiculo(vehiculo.getPlaca()));
 	}
 	
 }

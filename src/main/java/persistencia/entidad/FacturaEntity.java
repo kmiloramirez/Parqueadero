@@ -24,9 +24,7 @@ public class FacturaEntity {
 	private boolean estado;
 	@Column
 	private double valor;
-	public Long getId() {
-		return id;
-	}
+	
 	public Calendar getFechaDeIngreso() {
 		return fechaDeIngreso;
 	}
@@ -38,9 +36,6 @@ public class FacturaEntity {
 	}
 	public double getValor() {
 		return valor;
-	}
-	public void setId(Long id) {
-		this.id = id;
 	}
 	public void setFechaDeIngreso(Calendar fechaDeIngreso) {
 		this.fechaDeIngreso = fechaDeIngreso;

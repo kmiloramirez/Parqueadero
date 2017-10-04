@@ -23,12 +23,21 @@ public class Vigilante {
 		for(ReglasParqueo regla:reglasParqueo ){
 			regla.validar(vehiculo, parqueadero);
 		}
-		if(vehiculo.getTipo().equals("carro")){
-			Carro carro=new Carro(vehiculo.getPlaca());
-			repositorioVehiculo.agregarCarro(carro);
+		if(!existeVehiculo(vehiculo.getPlaca())){
+			if(vehiculo instanceof Carro){
+				Carro carro=(Carro) vehiculo;
+				repositorioVehiculo.agregarCarro(carro);
+			}
+			if(vehiculo instanceof Moto){
+				Moto moto=(Moto) vehiculo;
+				repositorioVehiculo.agregarMoto(moto);
+			}
 		}
 		
 		return new Factura(vehiculo, Calendar.getInstance());
+	}
+	public boolean existeVehiculo(String placa){
+		return repositorioVehiculo.obtenerVehiculo(placa)!=null;
 	}
 	
 	

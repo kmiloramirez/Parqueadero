@@ -1,5 +1,7 @@
 package reglas;
 
+import dominio.Carro;
+import dominio.Moto;
 import dominio.Parqueadero;
 import dominio.Vehiculo;
 import dominio.excepcion.IngresoException;
@@ -11,11 +13,11 @@ public class ReglaDisponibilidad implements ReglasParqueo {
 	
 	@Override
 	public boolean validar(Vehiculo vehiculo, Parqueadero parqueadero) {
-		if (vehiculo.getTipo().equals("carro") && parqueadero.getCeldaCarros() == 0) {
+		if (vehiculo instanceof Carro && parqueadero.getCeldaCarros() == 0) {
 			throw new IngresoException(NO_CAPACIDAD_CARROS);
 		}
 
-		if (vehiculo.getTipo().equals("moto") && parqueadero.getCeldaMotos() == 0) {
+		if (vehiculo instanceof Moto && parqueadero.getCeldaMotos() == 0) {
 			throw new IngresoException(NO_CAPACIDAD_MOTOS);
 		}
 		return true;
