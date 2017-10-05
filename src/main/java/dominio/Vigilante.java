@@ -37,6 +37,7 @@ public class Vigilante {
 			}
 		}
 		
+		
 		return new Factura(vehiculo, Calendar.getInstance());
 	}
 	public boolean existeVehiculo(String placa){
