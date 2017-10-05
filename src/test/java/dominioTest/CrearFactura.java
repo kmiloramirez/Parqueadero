@@ -8,7 +8,7 @@ import static org.mockito.Mockito.*;
 import java.util.Calendar;
 
 import dominio.Carro;
-import dominio.Factura;
+import dominio.Recibo;
 import dominio.Vehiculo;
 
 public class CrearFactura {
@@ -19,7 +19,7 @@ public class CrearFactura {
 	public void crearFacturaIngreso() {
 		vehiculo = mock(Vehiculo.class);
 		vehiculo = new Carro("FGN887");
-		Factura factura = new Factura(vehiculo, Calendar.getInstance());
+		Recibo factura = new Recibo(vehiculo, Calendar.getInstance());
 		Assert.assertNotNull(factura);
 	}
 
@@ -27,7 +27,7 @@ public class CrearFactura {
 	public void crearFacturaSalida() {
 		vehiculo = mock(Vehiculo.class);
 		vehiculo = new Carro("FGN887");
-		Factura factura = new Factura( vehiculo, Calendar.getInstance(), Calendar.getInstance(),  200.0);
+		Recibo factura = new Recibo( vehiculo, Calendar.getInstance(), Calendar.getInstance(),  200.0);
 		Assert.assertNotNull(factura);
 	}
 

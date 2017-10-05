@@ -5,55 +5,58 @@ import java.util.Calendar;
 import javax.persistence.*;
 
 
-@Entity(name="factura")
+@Entity(name = "Recibo")
+@NamedQueries({
+		@NamedQuery( name = "Recibo.findByPlaca" , query = "SELECT recibo FROM Recibo recibo WHERE recibo.vehiculo.placa = :placa") })
+                                                         
 
-public class FacturaEntity {
+public class ReciboEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
-	
-	@ManyToOne
+
+	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "ID_VEHICULO", referencedColumnName = "id")
-	private VehiculoEntity vehiculoEntity;
+	private VehiculoEntity vehiculo;
+	
 	
 	@Column(nullable = false)
 	private Calendar fechaDeIngreso;
 	@Column
 	private Calendar fechaDeSalida;
-	@Column(nullable = false)
-	private boolean estado;
 	@Column
 	private double valor;
-	
+
 	public Calendar getFechaDeIngreso() {
 		return fechaDeIngreso;
 	}
+
 	public Calendar getFechaDeSalida() {
 		return fechaDeSalida;
 	}
-	public boolean isEstado() {
-		return estado;
-	}
+
 	public double getValor() {
 		return valor;
 	}
+
 	public void setFechaDeIngreso(Calendar fechaDeIngreso) {
 		this.fechaDeIngreso = fechaDeIngreso;
 	}
+
 	public void setFechaDeSalida(Calendar fechaDeSalida) {
 		this.fechaDeSalida = fechaDeSalida;
 	}
-	public void setEstado(boolean estado) {
-		this.estado = estado;
-	}
+
 	public void setValor(double valor) {
 		this.valor = valor;
 	}
+
 	public VehiculoEntity getVehiculoEntity() {
-		return vehiculoEntity;
+		return vehiculo;
 	}
+
 	public void setVehiculoEntity(VehiculoEntity vehiculoEntity) {
-		this.vehiculoEntity = vehiculoEntity;
+		this.vehiculo = vehiculoEntity;
 	}
 
 }

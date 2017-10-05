@@ -34,7 +34,6 @@ public class RepositorioVehiculosPersistente implements RepositorioVehiculo {
 	@Override
 	public void agregarMoto(Moto moto) {
 		entityManager.persist(VehiculoBuilder.convertirMotoAEntity(moto));
-
 	}
 
 	@Override

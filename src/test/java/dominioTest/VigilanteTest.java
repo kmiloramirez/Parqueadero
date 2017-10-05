@@ -11,7 +11,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import com.parqueadero.vigilante.VigilanteApplication;
 
 import dominio.Carro;
-import dominio.Factura;
+import dominio.Recibo;
 import dominio.Moto;
 import dominio.Vehiculo;
 import dominio.Vigilante;
@@ -30,29 +30,29 @@ public class VigilanteTest {
 	@Test
 	public void ingresarCarroTest(){
 		vehiculo=new Carro("FGN887");
-		Factura factura=vigilante.ingresarVehiculo(vehiculo);
-		Assert.assertNotNull(factura);
+		Recibo recibo=vigilante.ingresarVehiculo(vehiculo);
+		Assert.assertNotNull(recibo);
 	}
 	@Test
 	public void ingresarMotoTest(){
 		vehiculo=new Moto("FGN887",201);
-		Factura factura=vigilante.ingresarVehiculo(vehiculo);
-		Assert.assertNotNull(factura);
+		Recibo recibo=vigilante.ingresarVehiculo(vehiculo);
+		Assert.assertNotNull(recibo);
 	}
 	
 	@Test
 	public void existeVehiculoTests(){
 		vehiculo=new Carro("FGN887");
-		Factura factura=vigilante.ingresarVehiculo(vehiculo);
-		Assert.assertNotNull(factura);
+		Recibo recibo=vigilante.ingresarVehiculo(vehiculo);
+		Assert.assertNotNull(recibo);
 		Assert.assertTrue(vigilante.existeVehiculo(vehiculo.getPlaca()));
 	}
 	@Test
 	public void noExisteVehiculoTests(){
 		vehiculo=new Carro("FGN887");
-		Factura factura=vigilante.ingresarVehiculo(vehiculo);
+		Recibo recibo=vigilante.ingresarVehiculo(vehiculo);
 		vehiculo=new Carro("HGN887");
-		Assert.assertNotNull(factura);
+		Assert.assertNotNull(recibo);
 		Assert.assertFalse(vigilante.existeVehiculo(vehiculo.getPlaca()));
 	}
 	

@@ -2,17 +2,17 @@ package dominio;
 
 import java.util.Calendar;
 
-public class Factura {
+public class Recibo {
 	private Vehiculo vehiculo;
 	private Calendar fechaDeIngreso;
 	private Calendar fechaDeSalida;
 	private double valor;
-	public Factura(Vehiculo vehiculo, Calendar fechaDeIngreso) {
+	public Recibo(Vehiculo vehiculo, Calendar fechaDeIngreso) {
 		this.vehiculo = vehiculo;
 		this.fechaDeIngreso = fechaDeIngreso;
 	}
 	
-	public Factura(Vehiculo vehiculo, Calendar fechaDeIngreso, Calendar fechaDeSalida, double valor) {
+	public Recibo(Vehiculo vehiculo, Calendar fechaDeIngreso, Calendar fechaDeSalida, double valor) {
 		this.vehiculo = vehiculo;
 		this.fechaDeIngreso = fechaDeIngreso;
 		this.fechaDeSalida = fechaDeSalida;
