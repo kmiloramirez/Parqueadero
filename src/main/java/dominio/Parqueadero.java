@@ -18,13 +18,6 @@ public class Parqueadero {
 		return celdaMotos;
 	}
 
-	public void setCeldaCarros(int celdaCarros) {
-		this.celdaCarros = celdaCarros;
-	}
-
-	public void setCeldaMotos(int celdaMotos) {
-		this.celdaMotos = celdaMotos;
-	}
 	
 
 }

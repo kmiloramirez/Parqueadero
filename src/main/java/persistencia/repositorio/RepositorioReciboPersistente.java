@@ -16,7 +16,9 @@ import persistencia.entidad.ReciboEntity;
 @Repository
 public class RepositorioReciboPersistente implements RepositorioRecibo {
 	private static final String PLACA = "placa";
+	private static final String TIPO = "tipo";
 	private static final String RECIBO_FIND_BY_PLACA = "Recibo.findByPlaca";
+	private static final String RECIBOS_ACTIVOS = "Recibo.findRecibosActivos";
 
 	private EntityManager entityManager;
 
@@ -50,6 +52,14 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 		List resultList = query.getResultList();
 		return !resultList.isEmpty() ? (ReciboEntity) resultList.get(0) : null;
 
+	}
+	
+	@Override	
+	public Long obtenerCantidadDeCeldasOcupadas(String tipo){
+		Query query = entityManager.createNamedQuery(RECIBOS_ACTIVOS);
+		query.setParameter(TIPO, tipo);
+		return (Long) query.getSingleResult();
+		 
 	}
 
 }

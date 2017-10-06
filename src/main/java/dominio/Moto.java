@@ -1,5 +1,7 @@
 package dominio;
 
+
+
 public class Moto extends Vehiculo {
 
 	private int cilindraje;
@@ -18,6 +20,8 @@ public class Moto extends Vehiculo {
 	public int getCilindraje() {
 		return cilindraje;
 	}
+
+	
 	
 
 }

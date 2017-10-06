@@ -4,11 +4,11 @@ import java.util.Calendar;
 
 import javax.persistence.*;
 
-
 @Entity(name = "Recibo")
 @NamedQueries({
-		@NamedQuery( name = "Recibo.findByPlaca" , query = "SELECT recibo FROM Recibo recibo WHERE recibo.vehiculo.placa = :placa") })
-                                                         
+		@NamedQuery(name = "Recibo.findByPlaca", query = "SELECT recibo FROM Recibo recibo WHERE recibo.vehiculoEntity.placa = :placa"),
+
+		@NamedQuery(name = "Recibo.findRecibosActivos", query = "SELECT COUNT(*) from Recibo recibo where recibo.vehiculoEntity.tipo = :tipo AND recibo.fechaDeSalida = null") })
 
 public class ReciboEntity {
 	@Id
@@ -17,9 +17,8 @@ public class ReciboEntity {
 
 	@ManyToOne(cascade = CascadeType.PERSIST)
 	@JoinColumn(name = "ID_VEHICULO", referencedColumnName = "id")
-	private VehiculoEntity vehiculo;
-	
-	
+	private VehiculoEntity vehiculoEntity;
+
 	@Column(nullable = false)
 	private Calendar fechaDeIngreso;
 	@Column
@@ -52,11 +51,11 @@ public class ReciboEntity {
 	}
 
 	public VehiculoEntity getVehiculoEntity() {
-		return vehiculo;
+		return vehiculoEntity;
 	}
 
 	public void setVehiculoEntity(VehiculoEntity vehiculoEntity) {
-		this.vehiculo = vehiculoEntity;
+		this.vehiculoEntity = vehiculoEntity;
 	}
 
 }

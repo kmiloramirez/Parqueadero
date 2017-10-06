@@ -11,5 +11,6 @@ public interface RepositorioVehiculo {
 	public void agregarMoto(Moto moto);
 	public Vehiculo obtenerVehiculo(String placa);
 	
+	void agregarVehiculo(Vehiculo vehiculo);
 
 }

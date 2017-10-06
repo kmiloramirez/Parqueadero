@@ -1,7 +1,8 @@
 package dominio;
 
 
-public class Carro extends Vehiculo {
+
+public class Carro extends Vehiculo{
 	
 	public Carro(){
 		this.tipo = "carro";
@@ -10,6 +11,7 @@ public class Carro extends Vehiculo {
 		this.placa=placa;
 		this.tipo = "carro";
 	}
+	
 	
 
 }

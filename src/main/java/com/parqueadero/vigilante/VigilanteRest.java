@@ -34,13 +34,13 @@ public class VigilanteRest {
 	@ResponseBody
 	public Recibo servicioIngresarCarro(@RequestBody Carro carro) {
 		Vehiculo vehiculo = carro;
-		return vigilante.ingresarVehiculo(vehiculo);
+		return vigilante.validarIngresoVehiculo(vehiculo);
 	}
 
 	@RequestMapping(value = "/ingreso/moto", method = RequestMethod.POST)
 	@ResponseBody
 	public Recibo servicioIngresarMoto(@RequestBody Moto moto) {
 		Vehiculo vehiculo = moto;
-		return vigilante.ingresarVehiculo(vehiculo);
+		return vigilante.validarIngresoVehiculo(vehiculo);
 	}
 }

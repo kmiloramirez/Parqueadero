@@ -20,7 +20,7 @@ public class VigilanteConfig {
 
 	@Bean
 	public Vigilante crearVigilante(RepositorioVehiculo repositorioVehiculo,RepositorioRecibo repositorioRecibo ){
-		return new Vigilante(crearParqueadero(), anadirreglas(),repositorioVehiculo,repositorioRecibo);
+		return new Vigilante(crearParqueadero(), anadirreglas(repositorioRecibo),repositorioVehiculo,repositorioRecibo);
 	}
 	
 	public Parqueadero crearParqueadero(){
@@ -29,9 +29,9 @@ public class VigilanteConfig {
 		return new Parqueadero(celdaCarros,celdaMotos);
 	}
 	
-	private List<ReglasParqueo> anadirreglas() {
+	private List<ReglasParqueo> anadirreglas(RepositorioRecibo repositorioRecibo) {
 		List<ReglasParqueo> reglasParqueo=new ArrayList<>();
-		reglasParqueo.add(new ReglaDisponibilidad());
+		reglasParqueo.add(new ReglaDisponibilidad(repositorioRecibo));
 		reglasParqueo.add(new ReglaPlaca());
 		return reglasParqueo;
 	}
