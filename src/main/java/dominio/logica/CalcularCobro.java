@@ -3,7 +3,7 @@ package dominio.logica;
 import java.util.Calendar;
 
 
-public class CalcularCobro {
+public  class CalcularCobro {
 
 	private CalcularDiferenciaEntreFechas calcularTiempoDeEstadia = new CalcularDiferenciaEntreFechas();
 	private CalcularDiasDeCobro calcularDiasDeCobro= new CalcularDiasDeCobro();
@@ -12,7 +12,7 @@ public class CalcularCobro {
 	private int diasDeCobro;
 	private int horasDeCobro;
 	
-	public int calcular(Calendar fechaDeIngreso, Calendar fechaDeSalida, int valorDias, int valorHoras) {
+	public  int calcular(Calendar fechaDeIngreso, Calendar fechaDeSalida, int valorDias, int valorHoras) {
 		calcularTiempoDeEstadia(fechaDeIngreso, fechaDeSalida);
 		calcularDiasDeCobro();
 		calcularHorasDeCobro();

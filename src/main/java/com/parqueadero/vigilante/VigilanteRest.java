@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dominio.Carro;
 import dominio.Recibo;
+import dominio.SalidaDeVehiculos;
 import dominio.Moto;
 import dominio.Vehiculo;
 import dominio.Vigilante;
@@ -42,5 +43,10 @@ public class VigilanteRest {
 	public Recibo servicioIngresarMoto(@RequestBody Moto moto) {
 		Vehiculo vehiculo = moto;
 		return vigilante.validarIngresoVehiculo(vehiculo);
+	}
+	@RequestMapping(value = "/cobrar/vehiculo", method = RequestMethod.POST)
+	@ResponseBody
+	public Recibo servicioIngresarMoto(@RequestBody SalidaDeVehiculos placa) {
+		return vigilante.darSalidaVehiculo(placa.getPlaca());
 	}
 }

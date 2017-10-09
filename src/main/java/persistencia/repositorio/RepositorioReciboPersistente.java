@@ -1,5 +1,6 @@
 package persistencia.repositorio;
 
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.EntityManager;
@@ -14,7 +15,7 @@ import persistencia.builder.ReciboBuilder;
 import persistencia.entidad.ReciboEntity;
 import persistencia.entidad.VehiculoEntity;
 
-@Repository
+@Repository 
 public class RepositorioReciboPersistente implements RepositorioRecibo {
 	private static final String PLACA = "placa";
 	private static final String TIPO = "tipo"; 
@@ -66,5 +67,11 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 		return (Long) query.getSingleResult();
 		 
 	}
+	public void actualizarRecibo(String placa,Calendar fechaSalida,int valor) {	
+		ReciboEntity reciboentity=obtenerReciboEntity(placa);	
+		reciboentity.setFechaDeSalida(fechaSalida);	
+		reciboentity.setValor(valor);
+
+		}
 
 }

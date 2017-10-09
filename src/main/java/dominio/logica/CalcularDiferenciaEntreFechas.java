@@ -25,17 +25,3 @@ public class CalcularDiferenciaEntreFechas {
 		miliSegHoraFinal = fechaDeSalida.getTimeInMillis();
 	}
 }
-/*
- * 
-	 * public static final String ERROR_INTENTANDO_CALCULAR_TIEMPO_DE_SERVICIO =
-	 * "Error intentando calcular tiempo de servicio";  private static final int DIAS_DIVISOR =
-	 * HORAS_DIVISOR*9; long miliSegHoraInicial = horaInicial.getTimeInMillis();
-	 * 
-	 * verificarHorasCorrectas(miliSegHoraInicial,miliSegHoraFinal);
-	 *  long diferenciaMiliSeg = miliSegHoraFinal - miliSegHoraInicial;
-	 *   return ((double)diferenciaMiliSeg/divisor) long miliSegHoraInicial = horaInicial.getTimeInMillis();
-	 *    long miliSegHoraFinal = horaFinal.getTimeInMillis();
-	 * verificarHorasCorrectas(miliSegHoraInicial,miliSegHoraFinal); long
-	 * diferenciaMiliSeg = miliSegHoraFinal - miliSegHoraInicial; return
-	 * ((double)diferenciaMiliSeg/divisor);
- */

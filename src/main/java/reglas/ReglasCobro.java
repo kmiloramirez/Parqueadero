@@ -8,5 +8,6 @@ import java.util.Calendar;
 public interface ReglasCobro {
 	
 	public int cobrar(Recibo recibo, Calendar fechaDeSalida);
+	public String tipoDeCobro();
 
 }

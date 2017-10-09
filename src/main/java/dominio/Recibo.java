@@ -12,11 +12,19 @@ public class Recibo {
 		this.fechaDeIngreso = fechaDeIngreso;
 	}
 	
+	public void setValor(double valor) {
+		this.valor = valor;
+	}
+
 	public Recibo(Vehiculo vehiculo, Calendar fechaDeIngreso, Calendar fechaDeSalida, double valor) {
 		this.vehiculo = vehiculo;
 		this.fechaDeIngreso = fechaDeIngreso;
 		this.fechaDeSalida = fechaDeSalida;
 		this.valor = valor;
+	}
+
+	public void setFechaDeSalida(Calendar fechaDeSalida) {
+		this.fechaDeSalida = fechaDeSalida;
 	}
 
 	public Vehiculo getVehiculo() {
