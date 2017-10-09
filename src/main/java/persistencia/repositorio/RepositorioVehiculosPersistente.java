@@ -7,11 +7,11 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Repository;
 
-import dominio.Accion;
 import dominio.Carro;
 import dominio.Moto;
-import dominio.RealizarAccion;
 import dominio.Vehiculo;
+import dominio.logica.Accion;
+import dominio.logica.RealizarAccion;
 import dominio.repositorio.RepositorioVehiculo;
 import persistencia.builder.VehiculoBuilder;
 import persistencia.entidad.VehiculoEntity;
@@ -67,7 +67,7 @@ public class RepositorioVehiculosPersistente implements RepositorioVehiculo {
 	}
 
 	@SuppressWarnings("rawtypes")
-	private VehiculoEntity obtenerVehiculoEntity(String placa) {
+	public VehiculoEntity obtenerVehiculoEntity(String placa) {
 		Query query = entityManager.createNamedQuery(VEHICULO_POR_PLACA);
 		query.setParameter(PLACA, placa);
 		List reultList = query.getResultList();

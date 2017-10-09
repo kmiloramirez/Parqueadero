@@ -12,11 +12,12 @@ import dominio.Recibo;
 import dominio.repositorio.RepositorioRecibo;
 import persistencia.builder.ReciboBuilder;
 import persistencia.entidad.ReciboEntity;
+import persistencia.entidad.VehiculoEntity;
 
 @Repository
 public class RepositorioReciboPersistente implements RepositorioRecibo {
 	private static final String PLACA = "placa";
-	private static final String TIPO = "tipo";
+	private static final String TIPO = "tipo"; 
 	private static final String RECIBO_FIND_BY_PLACA = "Recibo.findByPlaca";
 	private static final String RECIBOS_ACTIVOS = "Recibo.findRecibosActivos";
 
@@ -28,7 +29,11 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 
 	@Override
 	public void agregarRecibo(Recibo recibo) {
-		entityManager.persist(ReciboBuilder.convertirReciboAEntity(recibo));
+		ReciboEntity reciboEntity= ReciboBuilder.convertirReciboAEntity(recibo);
+		RepositorioVehiculosPersistente repositorioVehiculosPersistente = new RepositorioVehiculosPersistente(entityManager);
+		VehiculoEntity vehiculoEntity=  repositorioVehiculosPersistente.obtenerVehiculoEntity(recibo.getVehiculo().getPlaca());
+		reciboEntity.setVehiculoEntity(vehiculoEntity);
+		entityManager.persist(reciboEntity);
 
 	}
 

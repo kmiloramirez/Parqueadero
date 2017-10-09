@@ -4,9 +4,9 @@ package reglas;
 import dominio.Carro;
 import dominio.Moto;
 import dominio.Parqueadero;
-import dominio.RealizarAccion;
 import dominio.Vehiculo;
 import dominio.excepcion.IngresoException;
+import dominio.logica.RealizarAccion;
 import dominio.repositorio.RepositorioRecibo;
 
 public class ReglaDisponibilidad implements ReglasParqueo {

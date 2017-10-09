@@ -8,6 +8,7 @@ import javax.persistence.*;
 
 public class VehiculoEntity {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
@@ -18,6 +19,9 @@ public class VehiculoEntity {
 	@Column
 	private int cilindraje;
 
+	
+
+	
 	public Long getId() {
 		return id;
 	}

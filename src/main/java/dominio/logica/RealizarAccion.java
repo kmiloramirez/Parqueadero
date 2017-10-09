@@ -1,4 +1,8 @@
-package dominio;
+package dominio.logica;
+
+import dominio.Carro;
+import dominio.Moto;
+import dominio.Vehiculo;
 
 public class RealizarAccion {
 	

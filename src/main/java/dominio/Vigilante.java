@@ -13,7 +13,7 @@ public class Vigilante {
 	private RepositorioVehiculo repositorioVehiculo;
 	private RepositorioRecibo repositorioRecibo;
 	private Parqueadero parqueadero;
-	private List<ReglasParqueo> reglasParqueo;
+	private List<ReglasParqueo> reglasParqueo; 
 	private static final String NO_PUEDE_INGRESAR = "este vehiculo tiene un recibo sin cobrar";
 
 	public Vigilante(Parqueadero parqueadero, List<ReglasParqueo> reglasParqueo,

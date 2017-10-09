@@ -8,14 +8,14 @@ import javax.persistence.*;
 @NamedQueries({
 		@NamedQuery(name = "Recibo.findByPlaca", query = "SELECT recibo FROM Recibo recibo WHERE recibo.vehiculoEntity.placa = :placa"),
 
-		@NamedQuery(name = "Recibo.findRecibosActivos", query = "SELECT COUNT(*) from Recibo recibo where recibo.vehiculoEntity.tipo = :tipo AND recibo.fechaDeSalida = null") })
+		@NamedQuery(name = "Recibo.findRecibosActivos", query = "SELECT COUNT(*) from Recibo recibo where recibo.vehiculoEntity.tipo = :tipo AND recibo.fechaDeSalida is null") })
 
 public class ReciboEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	@ManyToOne(cascade = CascadeType.PERSIST)
+	@ManyToOne
 	@JoinColumn(name = "ID_VEHICULO", referencedColumnName = "id")
 	private VehiculoEntity vehiculoEntity;
 
