@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 
 import dominio.Carro;
 import dominio.Recibo;
-import dominio.SalidaDeVehiculos;
 import dominio.Moto;
 import dominio.Vehiculo;
 import dominio.Vigilante;
+import dominio.logica.SalidaDeVehiculos;
 import dominio.repositorio.RepositorioRecibo;
 
 @RestController

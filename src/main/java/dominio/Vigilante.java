@@ -34,7 +34,7 @@ public class Vigilante {
 	public Recibo validarIngresoVehiculo(Vehiculo vehiculo) {
 		validarReglasDeIngreso(vehiculo);
 		elVehivuloYaHabiaIngreado(vehiculo);
-		if (!existeReciboSinCobrar(vehiculo.getPlaca())) {
+		if (!validarSiElVehiculoDebeUnRecibo(vehiculo.getPlaca())) {
 			Recibo recibo = new Recibo(vehiculo, Calendar.getInstance());
 			repositorioRecibo.agregarRecibo(recibo);
 			return recibo;
@@ -95,7 +95,7 @@ public class Vigilante {
 		return repositorioVehiculo.obtenerVehiculo(placa) != null;
 	}
 
-	public boolean existeReciboSinCobrar(String placa) {
+	public boolean validarSiElVehiculoDebeUnRecibo(String placa) {
 		return repositorioRecibo.obtenerRecibo(placa) != null;
 	}
 

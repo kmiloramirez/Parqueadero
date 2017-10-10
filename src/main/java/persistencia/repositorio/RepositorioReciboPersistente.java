@@ -10,6 +10,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import dominio.Recibo;
+import dominio.excepcion.ParqueoException;
 import dominio.repositorio.RepositorioRecibo;
 import persistencia.builder.ReciboBuilder;
 import persistencia.entidad.ReciboEntity;
@@ -22,6 +23,7 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 	private static final String RECIBO_FIND_BY_PLACA = "Recibo.findByPlaca";
 	private static final String RECIBOS_ACTIVOS = "Recibo.findRecibosActivos";
 	private static final String TOTAL_DE_VEHICULOS_ACTIVOS = "Recibo.findVehuculosActivos";
+	private static final String EL_PARQUEADERO_ESTA_VACIO = "el parqueadero esta vacio";
 
 	private EntityManager entityManager;
 
@@ -83,12 +85,14 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 	@Override
 	public List<Recibo> obtenerListaDeRecibos() {
 		List<ReciboEntity> listaEntity = listarRecibos();
-		List<Recibo> listaRecibos = new ArrayList<>();
-		for(ReciboEntity reciboEntity : listaEntity){
-			listaRecibos.add(ReciboBuilder.convertirADominio(reciboEntity));
+		if(listaEntity!=null){
+			List<Recibo> listaRecibos = new ArrayList<>();
+			for(ReciboEntity reciboEntity : listaEntity){
+				listaRecibos.add(ReciboBuilder.convertirADominio(reciboEntity));
+			}
+			return listaRecibos;
 		}
-		
-		return listaRecibos;
+		throw new ParqueoException(EL_PARQUEADERO_ESTA_VACIO);
 	}
 	@SuppressWarnings("rawtypes")
 	private List<ReciboEntity> listarRecibos() {

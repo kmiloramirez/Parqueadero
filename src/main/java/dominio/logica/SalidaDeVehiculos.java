@@ -1,4 +1,4 @@
-package dominio;
+package dominio.logica;
 
 public class SalidaDeVehiculos {
 	private String placa;
