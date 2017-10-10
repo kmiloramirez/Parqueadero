@@ -1,5 +1,7 @@
 package com.parqueadero.vigilante;
 
+import java.util.List;
+
 import javax.transaction.Transactional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,6 +18,7 @@ import dominio.SalidaDeVehiculos;
 import dominio.Moto;
 import dominio.Vehiculo;
 import dominio.Vigilante;
+import dominio.repositorio.RepositorioRecibo;
 
 @RestController
 @Transactional
@@ -25,6 +28,8 @@ public class VigilanteRest {
 
 	@Autowired
 	Vigilante vigilante;
+	@Autowired
+	RepositorioRecibo repositorioRecibo ;
 
 	@RequestMapping("/")
 	public String home() {
@@ -48,5 +53,10 @@ public class VigilanteRest {
 	@ResponseBody
 	public Recibo servicioIngresarMoto(@RequestBody SalidaDeVehiculos placa) {
 		return vigilante.darSalidaVehiculo(placa.getPlaca());
+	}
+	@RequestMapping(value = "/listar/vehiculos", method = RequestMethod.GET)
+	@ResponseBody
+	public List<Recibo> servicioListarVehiculos() {
+		return repositorioRecibo.obtenerListaDeRecibos() ;
 	}
 }

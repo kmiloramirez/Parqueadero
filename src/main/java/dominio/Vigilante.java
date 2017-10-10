@@ -19,7 +19,7 @@ public class Vigilante {
 	private List<ReglasCobro> reglasCobro;
 	private static final String NO_PUEDE_INGRESAR = "este vehiculo tiene un recibo sin cobrar";
 	private static final String NO_SE_TIENE_COMO_COBRAR = "este vehiculo no es soportado por el sistema";
-	private static final String ESTE_VEHICULO_NO_ESTA = "este vehiculo no esta en el sistema o no tiene recibos pendientes";
+	private static final String ESTE_VEHICULO_NO_ESTA = "este vehiculo no esta en el sistema";
 
 	public Vigilante(Parqueadero parqueadero, List<ReglasParqueo> reglasParqueo,
 			RepositorioVehiculo repositorioVehiculo, RepositorioRecibo repositorioRecibo,

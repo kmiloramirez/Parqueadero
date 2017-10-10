@@ -8,7 +8,9 @@ import javax.persistence.*;
 @NamedQueries({
 		@NamedQuery(name = "Recibo.findByPlaca", query = "SELECT recibo FROM Recibo recibo WHERE recibo.vehiculoEntity.placa = :placa AND recibo.fechaDeSalida is null"),
 
-		@NamedQuery(name = "Recibo.findRecibosActivos", query = "SELECT COUNT(*) from Recibo recibo where recibo.vehiculoEntity.tipo = :tipo AND recibo.fechaDeSalida is null") })
+		@NamedQuery(name = "Recibo.findRecibosActivos", query = "SELECT COUNT(*) from Recibo recibo where recibo.vehiculoEntity.tipo = :tipo AND recibo.fechaDeSalida is null"),
+
+		@NamedQuery(name = "Recibo.findVehuculosActivos", query = "SELECT recibo from Recibo recibo where recibo.fechaDeSalida is null") })
 
 public class ReciboEntity {
 	@Id

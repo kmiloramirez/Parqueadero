@@ -1,5 +1,6 @@
 package persistencia.repositorio;
 
+import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
 
@@ -20,6 +21,7 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 	private static final String TIPO = "tipo";
 	private static final String RECIBO_FIND_BY_PLACA = "Recibo.findByPlaca";
 	private static final String RECIBOS_ACTIVOS = "Recibo.findRecibosActivos";
+	private static final String TOTAL_DE_VEHICULOS_ACTIVOS = "Recibo.findVehuculosActivos";
 
 	private EntityManager entityManager;
 
@@ -76,6 +78,23 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 			reciboentity.setValor(valor);
 		}
 
+	}
+
+	@Override
+	public List<Recibo> obtenerListaDeRecibos() {
+		List<ReciboEntity> listaEntity = listarRecibos();
+		List<Recibo> listaRecibos = new ArrayList<>();
+		for(ReciboEntity reciboEntity : listaEntity){
+			listaRecibos.add(ReciboBuilder.convertirADominio(reciboEntity));
+		}
+		
+		return listaRecibos;
+	}
+	@SuppressWarnings("rawtypes")
+	private List<ReciboEntity> listarRecibos() {
+		Query query= entityManager.createNamedQuery(TOTAL_DE_VEHICULOS_ACTIVOS);
+		List resultList = query.getResultList();
+		return !resultList.isEmpty() ? resultList : null;
 	}
 
 }
