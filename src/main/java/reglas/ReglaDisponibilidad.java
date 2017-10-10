@@ -5,7 +5,7 @@ import dominio.Carro;
 import dominio.Moto;
 import dominio.Parqueadero;
 import dominio.Vehiculo;
-import dominio.excepcion.IngresoException;
+import dominio.excepcion.ParqueoException;
 import dominio.logica.RealizarAccion;
 import dominio.repositorio.RepositorioRecibo;
 
@@ -32,13 +32,13 @@ public class ReglaDisponibilidad implements ReglasParqueo {
 
 		accion.executeSiCarro(vehiculo, ()  -> {
 			if (celdasDisponibles(vehiculo,parqueadero)==LIMITE_MINIMO_DE_CELDAS_PARA_PRESTAR) {
-				throw new IngresoException(NO_CAPACIDAD_CARROS);
+				throw new ParqueoException(NO_CAPACIDAD_CARROS);
 			}
 		});
 		
 		accion.executeSiMoto(vehiculo, () -> {
 			if (vehiculo instanceof Moto && celdasDisponibles(vehiculo,parqueadero)==LIMITE_MINIMO_DE_CELDAS_PARA_PRESTAR) {
-				throw new IngresoException(NO_CAPACIDAD_MOTOS);
+				throw new ParqueoException(NO_CAPACIDAD_MOTOS);
 			}
 		});		
 		return true;

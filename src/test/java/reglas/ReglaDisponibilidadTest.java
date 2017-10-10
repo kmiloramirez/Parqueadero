@@ -16,7 +16,7 @@ import dominio.Carro;
 import dominio.Moto;
 import dominio.Parqueadero;
 import dominio.Vehiculo;
-import dominio.excepcion.IngresoException;
+import dominio.excepcion.ParqueoException;
 import dominio.repositorio.RepositorioRecibo;
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes={VigilanteApplication.class})
@@ -59,7 +59,7 @@ public class ReglaDisponibilidadTest {
 			reglas.validar(vehiculo, parqueadero);
 			fail();
 
-		} catch (IngresoException e) {
+		} catch (ParqueoException e) {
 			Assert.assertEquals("no hay capacidad para motos", e.getMessage());
 		}
 
@@ -74,7 +74,7 @@ public class ReglaDisponibilidadTest {
 			reglas.validar(vehiculo, parqueadero);
 			fail();
 
-		} catch (IngresoException e) {
+		} catch (ParqueoException e) {
 			Assert.assertEquals("no hay capacidad para carros", e.getMessage());
 		}
 

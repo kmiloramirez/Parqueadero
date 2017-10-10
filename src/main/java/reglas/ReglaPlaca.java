@@ -4,7 +4,7 @@ import java.util.Calendar;
 
 import dominio.Parqueadero;
 import dominio.Vehiculo;
-import dominio.excepcion.IngresoException;
+import dominio.excepcion.ParqueoException;
 
 
 public class ReglaPlaca implements ReglasParqueo {
@@ -15,7 +15,7 @@ public class ReglaPlaca implements ReglasParqueo {
 	public boolean validar(Vehiculo vehicuilo, Parqueadero parqueadero) {
 		String placa = vehicuilo.getPlaca();
 		if(placa.charAt(0)=='A' && !saberSiPuedeIngresar()){
-				throw new IngresoException(NO_PUEDE_INGRESAR_HOY);
+				throw new ParqueoException(NO_PUEDE_INGRESAR_HOY);
 		}
 		return true;
 		

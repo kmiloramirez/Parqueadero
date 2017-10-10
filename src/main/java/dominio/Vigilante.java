@@ -3,7 +3,7 @@ package dominio;
 import java.util.Calendar;
 import java.util.List;
 
-import dominio.excepcion.IngresoException;
+import dominio.excepcion.ParqueoException;
 import dominio.repositorio.RepositorioRecibo;
 import dominio.repositorio.RepositorioVehiculo;
 
@@ -19,7 +19,7 @@ public class Vigilante {
 	private List<ReglasCobro> reglasCobro;
 	private static final String NO_PUEDE_INGRESAR = "este vehiculo tiene un recibo sin cobrar";
 	private static final String NO_SE_TIENE_COMO_COBRAR = "este vehiculo no es soportado por el sistema";
-	private static final String ESTE_VEHICULO_NO_ESTA = "este vehiculo no esta en el sistema";
+	private static final String ESTE_VEHICULO_NO_ESTA = "este vehiculo no esta en el sistema o no tiene recibos pendientes";
 
 	public Vigilante(Parqueadero parqueadero, List<ReglasParqueo> reglasParqueo,
 			RepositorioVehiculo repositorioVehiculo, RepositorioRecibo repositorioRecibo,
@@ -39,7 +39,7 @@ public class Vigilante {
 			repositorioRecibo.agregarRecibo(recibo);
 			return recibo;
 		}
-		throw new IngresoException(NO_PUEDE_INGRESAR);
+		throw new ParqueoException(NO_PUEDE_INGRESAR);
 
 	}
 
@@ -67,11 +67,15 @@ public class Vigilante {
 				return regla;
 			}
 		}
-		throw new IngresoException(NO_SE_TIENE_COMO_COBRAR);
+		throw new ParqueoException(NO_SE_TIENE_COMO_COBRAR);
 	}
 
 	private Recibo obtenerReciboDeEntrada(String placa) {
-		return repositorioRecibo.obtenerRecibo(placa);
+		Recibo recibo=repositorioRecibo.obtenerRecibo(placa);
+		if(recibo !=null){
+			return recibo;
+		}
+		throw new ParqueoException(ESTE_VEHICULO_NO_ESTA);
 		
 	}
 

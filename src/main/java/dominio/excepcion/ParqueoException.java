@@ -1,10 +1,10 @@
 package dominio.excepcion;
 
-public class IngresoException extends RuntimeException {
+public class ParqueoException extends RuntimeException {
 
 	private static final long serialVersionUID = 1L;
 	
-	public IngresoException(String message) {
+	public ParqueoException(String message) {
 		super(message);
 	}
 }
