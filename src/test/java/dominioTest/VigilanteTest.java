@@ -55,5 +55,28 @@ public class VigilanteTest {
 		Assert.assertNotNull(recibo);
 		Assert.assertFalse(vigilante.existeVehiculo(vehiculo.getPlaca()));
 	}
-	
+	@Test
+	public void salidaDeCarroTests(){
+		vehiculo=new Carro("FGN887");
+		vigilante.validarIngresoVehiculo(vehiculo);
+		Recibo reciboSalida=vigilante.darSalidaVehiculo("FGN887");
+		Assert.assertNotNull(reciboSalida);
+		Assert.assertEquals(reciboSalida.getValor(),1000, 0);
+	}
+	@Test
+	public void salidaDeMotoCilindraje499Tests(){
+		vehiculo=new Moto("FGN887",499);
+		vigilante.validarIngresoVehiculo(vehiculo);
+		Recibo reciboSalida=vigilante.darSalidaVehiculo("FGN887");
+		Assert.assertNotNull(reciboSalida);
+		Assert.assertEquals(reciboSalida.getValor(),500, 0);
+	}
+	@Test
+	public void salidaDeMotoCilindraje500Tests(){
+		vehiculo=new Moto("FGN887",500);
+		vigilante.validarIngresoVehiculo(vehiculo);
+		Recibo reciboSalida=vigilante.darSalidaVehiculo("FGN887");
+		Assert.assertNotNull(reciboSalida);
+		Assert.assertEquals(reciboSalida.getValor(),2500, 0);
+	}
 }

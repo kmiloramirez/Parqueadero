@@ -6,7 +6,6 @@ import java.util.List;
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 
-
 import org.springframework.stereotype.Repository;
 
 import dominio.Recibo;
@@ -15,10 +14,10 @@ import persistencia.builder.ReciboBuilder;
 import persistencia.entidad.ReciboEntity;
 import persistencia.entidad.VehiculoEntity;
 
-@Repository 
+@Repository
 public class RepositorioReciboPersistente implements RepositorioRecibo {
 	private static final String PLACA = "placa";
-	private static final String TIPO = "tipo"; 
+	private static final String TIPO = "tipo";
 	private static final String RECIBO_FIND_BY_PLACA = "Recibo.findByPlaca";
 	private static final String RECIBOS_ACTIVOS = "Recibo.findRecibosActivos";
 
@@ -30,9 +29,11 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 
 	@Override
 	public void agregarRecibo(Recibo recibo) {
-		ReciboEntity reciboEntity= ReciboBuilder.convertirReciboAEntity(recibo);
-		RepositorioVehiculosPersistente repositorioVehiculosPersistente = new RepositorioVehiculosPersistente(entityManager);
-		VehiculoEntity vehiculoEntity=  repositorioVehiculosPersistente.obtenerVehiculoEntity(recibo.getVehiculo().getPlaca());
+		ReciboEntity reciboEntity = ReciboBuilder.convertirReciboAEntity(recibo);
+		RepositorioVehiculosPersistente repositorioVehiculosPersistente = new RepositorioVehiculosPersistente(
+				entityManager);
+		VehiculoEntity vehiculoEntity = repositorioVehiculosPersistente
+				.obtenerVehiculoEntity(recibo.getVehiculo().getPlaca());
 		reciboEntity.setVehiculoEntity(vehiculoEntity);
 		entityManager.persist(reciboEntity);
 
@@ -40,15 +41,15 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 
 	@Override
 	public Recibo obtenerRecibo(String placa) {
-		
+
 		ReciboEntity reciboEntity = obtenerReciboEntity(placa);
 		Recibo recibo = null;
-		if(reciboEntity != null){
+		if (reciboEntity != null) {
 			recibo = ReciboBuilder.convertirADominio(reciboEntity);
 		}
-		
-		return recibo;			
-		
+
+		return recibo;
+
 	}
 
 	@SuppressWarnings("rawtypes")
@@ -59,19 +60,22 @@ public class RepositorioReciboPersistente implements RepositorioRecibo {
 		return !resultList.isEmpty() ? (ReciboEntity) resultList.get(0) : null;
 
 	}
-	
-	@Override	
-	public Long obtenerCantidadDeCeldasOcupadas(String tipo){
+
+	@Override
+	public Long obtenerCantidadDeCeldasOcupadas(String tipo) {
 		Query query = entityManager.createNamedQuery(RECIBOS_ACTIVOS);
 		query.setParameter(TIPO, tipo);
 		return (Long) query.getSingleResult();
-		 
-	}
-	public void actualizarRecibo(String placa,Calendar fechaSalida,int valor) {	
-		ReciboEntity reciboentity=obtenerReciboEntity(placa);	
-		reciboentity.setFechaDeSalida(fechaSalida);	
-		reciboentity.setValor(valor);
 
+	}
+
+	public void actualizarRecibo(String placa, Calendar fechaSalida, int valor) {
+		ReciboEntity reciboentity = obtenerReciboEntity(placa);
+		if (reciboentity != null) {
+			reciboentity.setFechaDeSalida(fechaSalida);
+			reciboentity.setValor(valor);
 		}
+
+	}
 
 }
