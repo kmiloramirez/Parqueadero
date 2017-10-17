@@ -6,9 +6,8 @@ import 'rxjs/add/operator/map';
 import'rxjs/add/operator/catch';
 
 @Injectable()
-export class MotoService {
-
-  private _endPoint = "http://localhost:8090/parqueadero/ingreso/moto";
+export class ListarVehiculosService {
+  private _endPoint = "http://localhost:8090/parqueadero//listar/vehiculos";
   constructor(private _http: Http) {}
 
   public all():Observable<any>{
@@ -17,16 +16,7 @@ export class MotoService {
     .catch(this.handleError);
   }
 
- public create(moto):Observable<any>{
-    const headers = new Headers({'Content-type':'application/json'});
-    return this._http.post(`${this._endPoint}`,moto, headers)
-    .map(this.extractData)
-    .catch(this.handleError);
-  }
-  
-
   private extractData(res:Response){
-    alert("kjh")
     return res.json()||{};
   }
 
@@ -42,6 +32,4 @@ export class MotoService {
     console.error(errMsg);
     return Observable.throw(errMsg);
   }
-
-
 }

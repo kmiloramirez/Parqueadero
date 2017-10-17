@@ -12,7 +12,7 @@ export class IngresoMotoComponent implements OnInit {
 
 
   public moto={
-    placa:'',cilindraje:0
+    placa:'',cilindraje:''
   };
 
   constructor(private _router: Router,
@@ -24,9 +24,8 @@ export class IngresoMotoComponent implements OnInit {
   }
 
   ingresoMoto(obj){
-    console.log(obj);
         this. _service.create(obj.moto).subscribe(res=>{
-      this._router.navigate(['/moto']);
+      this._router.navigate(['/listar/vehiculos']);
     });
   }
 

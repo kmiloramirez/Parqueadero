@@ -1,0 +1,30 @@
+<div class="col-md-12">
+    <div class="panel panel-default">
+        <div class="panel-heading" style="text-align: center">
+            <h2>Lista vehiculos parqueados</h2>
+        </div>
+        <div class="panel-body">
+            <table class="table table-striped ">
+                <thead> 
+                    <th>
+                        <div style="text-align: center"> <h3>PLACA</h3></div>
+                    </th>
+                    <th>
+                        <div style="text-align: center"><h3>TIPO</h3></div>
+                    </th> 
+                    <th>
+                        <div style="text-align: center"><h3>FECHA INGRESO</h3></div>
+                    </th> 
+                </thead>
+                <TBODy>
+                    <tr *ngFor="let vehiculo of vehiculos">
+                        <td><div style="text-align: center"><h4>{{vehiculo.vehiculo.placa}}</h4></div></td>
+                        <td><div style="text-align: center"><h4>{{vehiculo.vehiculo.tipo}}</h4></div></td>
+                        <td><div style="text-align: center"><h4>{{vehiculo.fechaDeIngreso | date:'medium'}}</h4></div></td>
+                        <td><div style="text-align: center"><button class="btn btn-info">Salida</button></div></td>    
+                    </tr>
+                </TBODy>
+            </table>
+        </div>
+    </div>
+</div>
