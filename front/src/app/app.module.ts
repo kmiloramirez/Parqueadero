@@ -16,6 +16,7 @@ import { ListarVehiculosService } from './services/listar-vehiculos.service';
 import { SalidaVehiculosComponent } from './components/salida-vehiculos/salida-vehiculos.component';
 import { SalidaFormComponent } from './components/salida-form/salida-form.component';
 import { SalidaService } from './services/salida.service';
+import { ReciboComponent } from './components/recibo/recibo.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -25,7 +26,8 @@ import { SalidaService } from './services/salida.service';
     CarroFormComponent,
     ListarVehiculosComponent,
     SalidaVehiculosComponent,
-    SalidaFormComponent
+    SalidaFormComponent,
+    ReciboComponent
   ],
   imports: [
     RouterModule.forRoot(appRoutes),

@@ -12,6 +12,12 @@ export class SalidaVehiculosComponent implements OnInit {
   public vehiculo={
     placa:''
   };
+  public recibo={
+    placa:'',
+    fechaIngreso:'',
+    fechaSalida:'',
+    valor:''
+  };
   constructor(private _router:Router,
   private _service:SalidaService) { }
 
@@ -20,7 +26,9 @@ export class SalidaVehiculosComponent implements OnInit {
   
   salidaVehiculo(obj){
     this._service.salir(obj.vehiculo).subscribe(res=>{
-      this._router.navigate(['/listar/vehiculos']);
+      console.log(res);
+      this.recibo=res;
+      this._router.navigate(['/vehiculo/salida']);
     });
   }
 
